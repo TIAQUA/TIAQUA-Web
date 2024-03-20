@@ -1,0 +1,13 @@
+<a href="{{ .Permalink }}">
+    <div class="summary border p-3">
+        {{ with .Resources.GetMatch "view" }}
+        <img src={{ .RelPermalink }} alt="">
+        {{ end }}
+        <dev style="text-align: center;">
+            <h2 class="text-3xl">
+                {{ .Title }}
+            </h2>
+        </dev>
+        <p>{{ .Description }}</p>
+    </div>
+</a>
