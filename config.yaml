@@ -25,7 +25,7 @@ params:
   googleFonts: true
   logo:
     main: img/logo.svg
-    alt: Tella Logo
+    alt: TIAQUA Logo
     size: h-14
   site:
     name: 台灣智能漁電科技股份有限公司
@@ -53,7 +53,7 @@ menu:
       url: /service/
       weight: 2
     - identifier: project
-      name: 案例實際
+      name: 實際案例
       url: /project/
       weight: 3
     - identifier: news
