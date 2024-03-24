@@ -1,4 +1,4 @@
-<div class="viewswiper relative">
+<div class="viewswiper relative overflow-hidden">
     <div class="swiper-wrapper">
         {{ range first 4 (where site.RegularPages.ByDate.Reverse "Type" .recenttype )}}
         <div class="swiper-slide">
