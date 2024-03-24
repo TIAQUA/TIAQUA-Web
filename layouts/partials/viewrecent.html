@@ -26,8 +26,9 @@
 <script src="{{ "/js/swiper-bundle.min.js" | relURL }}"></script>
 <script>
   var viewswiper = new Swiper('.viewswiper', {
-    slidesPerView: 4,
+    slidesPerView: Math.max(Math.floor(window.screen.width / (0.4444444444444444 * window.screen.height)), 1),
     direction: getDirection(),
+    loop: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',

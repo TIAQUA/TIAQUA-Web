@@ -23,6 +23,11 @@
     </div>
     {{- partial "slide.html" . -}}
     {{- partial "strip.html" . -}}
+    <div class="mx-auto my-10 max-w-6xl">
+      <div class="mx-3 col-span-3 lg:col-span-2 px-2">
+        <div class="content prose md:prose-lg lg:prose-xl max-w-none py-1">{{.Content}}</div>
+      </div>
+    </div>
     {{ if ne .Site.Params.showService false }}
     <div class="mx-auto my-10">
         <div class="text-center">
