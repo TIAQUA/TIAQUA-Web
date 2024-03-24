@@ -3,11 +3,11 @@
         {{ with .Resources.GetMatch "view" }}
         <img src={{ .RelPermalink }} alt="">
         {{ end }}
-        <dev class="text-center">
+        <div class="text-center">
             <h2 class="text-3xl">
                 {{ .Title }}
             </h2>
-        </dev>
+        </div>
         <p>{{ .Description }}</p>
     </div>
 </a>

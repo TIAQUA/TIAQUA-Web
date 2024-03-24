@@ -1,0 +1,11 @@
+<div class="summary border p-3">
+    {{ with .Resources.GetMatch "view" }}
+    <img style="height: auto;" src={{ .RelPermalink }} alt="">
+    {{ end }}
+    <div class="text-center">
+        <h2 class="text-3xl">
+            {{ .Title }}
+        </h2>
+    </div>
+    <p>{{ .Description }}</p>
+</div>

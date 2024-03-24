@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ or .Site.Language.Lang "ja" }}">
+
+<head>
+    {{- partial "head.html" . -}}
+    <meta name="description" content="{{ .Site.Params.homepage_meta_tags.meta_og_description }}" />
+    <meta property="og:title" content="{{ .Site.Params.homepage_meta_tags.meta_og_title }}" />
+    <meta property="og:type" content="{{ .Site.Params.homepage_meta_tags.meta_og_type }}" />
+    <meta property="og:url" content="{{ .Site.Params.homepage_meta_tags.meta_og_url }}" />
+    <meta property="og:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}" />
+    <meta property="og:description" content="{{ .Site.Params.homepage_meta_tags.meta_og_description }}" />
+    <meta property="og:locale" content="{{ replace (or .Language.LanguageCode "ja_JP") "-" "_" }}" />
+    <meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card }}" />
+    <meta name="twitter:site" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_site }}" />
+    <meta name="twitter:creator" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_creator }}" />
+</head>
+
+<body>
+    {{- partial "alert.html" . -}}
+    {{- partial "header.html" . -}}
+    <div class="scroll-top rounded-full">
+        <span class="icon-keyboard_arrow_up text-2xl"></span>
+    </div>
+    {{- partial "slide.html" . -}}
+    {{- partial "strip.html" . -}}
+    {{ if ne .Site.Params.showService false }}
+    <div class="mx-auto my-10">
+        <div class="text-center">
+            <h2 class="text-4xl ml-2">服務項目</h2>
+        </div>
+        <div class="content prose md:prose-lg lg:prose-xl max-w-none py-1">
+            <p></p>
+            <p></p>
+        </div>
+        {{- partial "viewrecent.html" (dict "context" . "recenttype" "service") -}}
+    </div>
+    {{ end }}
+    {{ if ne .Site.Params.showProject false }}
+    <div class="mx-auto my-10">
+        <div class="text-center">
+            <h2 class="text-4xl ml-2">實際案例</h2>
+        </div>
+        <div class="content prose md:prose-lg lg:prose-xl max-w-none py-1">
+            <p></p>
+            <p></p>
+        </div>
+        {{- partial "viewrecent.html" (dict "context" . "recenttype" "project") -}}
+    </div>
+    {{ end }}
+    {{ if ne .Site.Params.showNews false }}
+    <div class="mx-auto my-10 max-w-6xl">
+        <div class="text-center">
+            <h2 class="text-4xl ml-2">最新消息</h2>
+        </div>
+        <div class="content prose md:prose-lg lg:prose-xl max-w-none py-1">
+            <p></p>
+            <p></p>
+        </div>
+        {{- partial "newsrecent.html" . -}}
+    </div>
+    {{ end }}
+    {{- partial "footer.html" . -}}
+    <script src="{{ "/js/swiper-bundle.min.js" | relURL }}"></script>
+    <script>
+        var mySwiper = new Swiper(".swiper-container", {
+            direction: "horizontal",
+            loop: true,
+            speed: 550,
+            autoplay: {
+                delay: 6000,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>
