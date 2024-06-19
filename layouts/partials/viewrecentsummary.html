@@ -1,7 +1,8 @@
 <div class="summary border p-3">
     {{ with .Resources.GetMatch "view" }}
-    <img style="height: auto;" src={{ .RelPermalink }} alt="">
+    <img style="height: auto;" src={{ .RelPermalink }} class="w-full aspect-[3/2]" alt="">
     {{ end }}
+    <div class="padding"></div>
     <div class="text-center">
         <h2 class="text-3xl">
             {{ .Title }}

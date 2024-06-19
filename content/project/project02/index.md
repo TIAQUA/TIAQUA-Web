@@ -10,5 +10,7 @@ resources:
 description: ""
 ---
 
-<font color=red>待填</font>
+<script>
+window.location = "/project"
+</script>
 

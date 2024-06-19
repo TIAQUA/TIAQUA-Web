@@ -1,6 +1,6 @@
-<div class="viewswiper relative overflow-hidden">
+<div class="viewswiper-{{ .recenttype }} relative overflow-hidden">
     <div class="swiper-wrapper">
-        {{ range first 4 (where site.RegularPages.ByDate.Reverse "Type" .recenttype )}}
+        {{ range first (math.Min (where site.RegularPages.ByWeight "Type" .recenttype | len) 4) (where site.RegularPages.ByWeight "Type" .recenttype )}}
         <div class="swiper-slide">
             <a href="{{ .Permalink }}">{{ partial "viewrecentsummary.html" . }}</a>
         </div>
@@ -23,15 +23,50 @@
 }
 </style>
 
+
 <script src="{{ "/js/swiper-bundle.min.js" | relURL }}"></script>
 <script>
-  var viewswiper = new Swiper('.viewswiper', {
-    slidesPerView: Math.max(Math.floor(window.screen.width / (0.4444444444444444 * window.screen.height)), 1),
+  //slidesPerView: Math.max(Math.floor(window.screen.width / (0.4444444444444444 * window.screen.height)), 1),
+  var viewswiper_{{ .recenttype | safeJS }} = new Swiper('.viewswiper-{{ .recenttype }}', {
     direction: "horizontal",
     loop: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    breakpoints: {
+{{ if ge (where site.RegularPages.ByWeight "Type" .recenttype | len) 4 }}
+      '@1.777777': {
+        slidesPerView: 4,
+      },
+{{ end }}
+{{ if ge (where site.RegularPages.ByWeight "Type" .recenttype | len) 3 }}
+      '@1.333333': {
+        slidesPerView: 3,
+      },
+{{ end }}
+{{ if ge (where site.RegularPages.ByWeight "Type" .recenttype | len) 2 }}
+      '@0.888888': {
+        slidesPerView: 2,
+      },
+{{ end }}
+{{ if ge (where site.RegularPages.ByWeight "Type" .recenttype | len) 1 }}
+      '@0.444444': {
+        slidesPerView: 1,
+      },
+{{ end }}
+    }
   });
+  function setpadding() {
+    let maxh = 0;
+    for (let i = 0; i < viewswiper_{{ .recenttype | safeJS }}.slides.length; i++) {
+      viewswiper_{{ .recenttype | safeJS }}.slides[i].getElementsByClassName('padding')[0].style.height = "0px";
+      maxh = Math.max(viewswiper_{{ .recenttype | safeJS }}.slides[i].offsetHeight, maxh);
+    }
+    for (let i = 0; i < viewswiper_{{ .recenttype | safeJS }}.slides.length; i++) {
+      viewswiper_{{ .recenttype | safeJS }}.slides[i].getElementsByClassName('padding')[0].style.height = `${maxh - viewswiper_{{ .recenttype | safeJS }}.slides[i].offsetHeight}px`;
+    }
+  };
+  window.addEventListener("load", setpadding);
+  window.addEventListener("resize", setpadding);
 </script>
