@@ -6,9 +6,9 @@ featured: true
 weight: 4
 resources: 
 - name: view
-  src: view.png
+  src: view.svg
 description: ""
 ---
 
-![](/service/greenelectricitytrading/view.png)
+![](/service/greenelectricitytrading/view.svg)
 
