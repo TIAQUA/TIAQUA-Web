@@ -28,7 +28,6 @@ params:
     main: img/logo.svg
     alt: TIAQUA Logo
     size: h-20
-    textsize: text-4xl
   site:
     name: 台灣智能漁電科技股份有限公司
   icon:
