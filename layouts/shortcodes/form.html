@@ -15,13 +15,6 @@
         <input type="text" placeholder="電話" name="phone" class="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required>
     </div>
     <div class="input">
-        <select name="title" class="w-full p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required>
-            <option>項目一</option>
-            <option>項目二</option>
-            <option>其他</option>
-        </select>
-    </div>
-    <div class="input">
         <textarea rows="5" cols="30" placeholder="訊息" name="message" class="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required></textarea>
     </div>
     <input type="submit" value="送出" class="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400">
@@ -32,16 +25,15 @@
         const form = document.getElementById('contact');
         const params = new URLSearchParams({
             usp: 'pp_url',
-            'entry.1853968262': form.elements['name'].value,
-            'entry.1760073710': form.elements['company'].value,
-            'entry.305569686': form.elements['jobtitle'].value,
-            'entry.825767013': form.elements['mail'].value,
-            'entry.1165892874': form.elements['phone'].value,
-            'entry.139166825': form.elements['title'].value,
-            'entry.1773867110': form.elements['message'].value,
+            'entry.825422953': form.elements['name'].value,
+            'entry.1573808039': form.elements['company'].value,
+            'entry.1998229117': form.elements['jobtitle'].value,
+            'entry.2025747396': form.elements['mail'].value,
+            'entry.921783612': form.elements['phone'].value,
+            'entry.1547656647': form.elements['message'].value,
             submit: 'Submit',
         });
-        fetch(`https://docs.google.com/forms/d/e/1FAIpQLSdJFiu022Ch7WGGZXFJj9gTQCeQDfmaxf7Qz7dB1DVUIsMoLA/formResponse?${params.toString()}`);
+        fetch(`https://docs.google.com/forms/d/e/1FAIpQLSfQujnLFPnHPTlVHdVqcA65HeJRWa4mskKmyo3j8g2UZq2BlQ/formResponse?${params.toString()}`);
         alert('寄送成功');
     }
 </script>
