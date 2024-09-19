@@ -5,3 +5,8 @@ draft: false
 featured: true
 description: ""
 ---
+
+
+<script>
+window.location = "https://www.cna.com.tw/news/afe/202304240254.aspx"
+</script>
